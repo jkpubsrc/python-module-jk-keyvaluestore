@@ -24,7 +24,7 @@ setup(
 		"License :: OSI Approved :: Apache Software License",
 	],
 	description = "This python module implements a simple key-value data base based on JSON data stored in a directory.",
-	download_url = "https://github.com/jkpubsrc/......../tarball/0.2019.9.17",
+	download_url = "https://github.com/jkpubsrc/python-module-jk-keyvaluestore/tarball/0.2019.9.17",
 	include_package_data = False,
 	install_requires = [
 	],
@@ -37,7 +37,7 @@ setup(
 	packages = [
 		"jk_keyvaluestore",
 	],
-	url = "https://github.com/jkpubsrc/........",
+	url = "https://github.com/jkpubsrc/python-module-jk-keyvaluestore",
 	version = "0.2019.9.17",
 	zip_safe = False,
 	long_description = readme(),

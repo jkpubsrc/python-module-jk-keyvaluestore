@@ -24,11 +24,12 @@
 		{
 			"type": "github",
 			"user": "jkpubsrc",
-			"project": "........",
+			"project": "python-module-jk-keyvaluestore",
 			"devon_publish": false
 		},
 		{
 			"type": "pypy",
+			"project": "jk_keyvaluestore",
 			"devon_publish": false
 		}
 	],
