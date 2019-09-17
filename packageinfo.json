@@ -1,0 +1,49 @@
+{
+	"language": "python3",
+	"name": "jk_keyvaluestore",
+	"version": "0.2019.9.17",
+	"meta": {
+		"description": "This python module implements a simple key-value data base based on JSON data stored in a directory.",
+		"keywords": [
+			"kvp",
+			"json"
+		],
+		"license": "Apache 2.0",
+		"development_status": "beta",
+		"authors": [
+			{
+				"name": "Jürgen Knauth",
+				"email": "pubsrc@binary-overflow.de"
+			}
+		],
+		"wiki": {
+			"page": "DevDocs:jk_keyvaluestore"
+		}
+	},
+	"repositories": [
+		{
+			"type": "github",
+			"user": "jkpubsrc",
+			"project": "........",
+			"devon_publish": false
+		},
+		{
+			"type": "pypy",
+			"devon_publish": false
+		}
+	],
+	"source": {
+		"packages": [
+			"jk_keyvaluestore"
+		],
+		"extra_data_files": [
+		]
+	},
+	"requirements": {
+		"python_packages": [
+		],
+		"python_packages_dev": [
+		]
+	}
+}
+
