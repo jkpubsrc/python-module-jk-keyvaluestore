@@ -1,7 +1,7 @@
 {
 	"language": "python3",
 	"name": "jk_keyvaluestore",
-	"version": "0.2019.9.17",
+	"version": "0.2019.9.17.1",
 	"meta": {
 		"description": "This python module implements a simple key-value data base based on JSON data stored in a directory.",
 		"keywords": [
