@@ -4,7 +4,7 @@ jk_keyvaluestore
 Introduction
 ------------
 
-This python module implements a simple key-value data base based on JSON data stored in a directory.
+This python module implements a simple key-value database based on JSON data stored in a directory.
 
 Information about this module can be found here:
 
@@ -13,7 +13,7 @@ Information about this module can be found here:
 
 ### Goals
 
-This module provides a simple key-value-based data store. The current implementation does not aim for highes performance but for ease of use, even in interprocess domain. This means that ...
+This module provides a simple key-value-based data store. The current implementation does not aim for highest performance but for ease of use, even in the interprocess domain. This means that:
 
 * You can instantiate a data store class right away and use it to read and write key-value data. The only thing you need to provide is a writable data directory.
 * A data store can be read-write or read-only.
@@ -22,19 +22,19 @@ This module provides a simple key-value-based data store. The current implementa
 
 ### Limitations
 
-The current implementation is pretty straight forward. Every change causes a write of a JSON file that contains that data. This way a) persistency is ensured and b) other instances of a data store will receive the new data. Therefore the concurrency model is very simple: THe most recent write wins.
+The current implementation is pretty straightforward. Every change causes a write of a JSON file that contains that data. This way a) persistency is ensured and b) other instances of a data store will receive the new data. Therefore the concurrency model is very simple: The most recent write wins.
 
 Though this concept has drawbacks:
 
 * Managing thousands of key-value-pairs will be inefficient as for every key-value-pair a single file is required to hold that data.
 * High frequent changes of data will be inefficient as well.
-* As time stamps are used to synchronize one or more data store instances if you use multiple processes residing on multiple hosts you need to ensure that the system time will not be much different accross all nodes.
+* As timestamps are used to synchronize one or more data store instances if you use multiple processes residing on multiple hosts you need to ensure that the system time will not be much different accross all nodes.
 
-This key-value store is ment for use cases where you desire to keep things simple in your software as the amount of data you need to manage is quite limited.
+This key-value store is meant for use cases where you desire to keep things simple in your software as the amount of data you need to manage is quite limited.
 
 ### Use cases
 
-Use cases for this implementation is:
+Use cases for this implementation are:
 
 * Write out state information of an application and monitor it
 * Implement simple interprocess communication
@@ -44,7 +44,7 @@ Use cases for this implementation is:
 
 Nevertheless this approach has a variety of benefits:
 
-* Portability: If you (would) require the cooperation of programs written in different languages this can be achieved very easily. Porting this python implementation to other programming languages would be very simple.
+* Portability: If you (would) require the cooperation of programs written in different languages this can be achieved very easily. Porting this Python implementation to other programming languages would be very simple.
 
 How to use this module
 ----------------------
@@ -73,7 +73,7 @@ ds = DirBasedKeyValueStore(dirPath="my/data/directory", identifier=1)
 For clarification all arguments have been named in this example (in their order of declaration).
 
 * `dirPath` must refer to an existing directory that will hold the data. If multiple instances are created they must refer to the same directory.
-* If this is not a read only instance `identifier` must be either a valid string or a valid integer value. If it is a string the identifier is matched against `r[a-zA-Z0-9_+-\.]+`. If it is an integer the value must be greater or equal to zero. If you specify `None` (which is the default) the data store will be read only.
+* If this is not a read-only instance `identifier` must be either a valid string or a valid integer value. If it is a string the identifier is matched against `r[a-zA-Z0-9_+-\.]+`. If it is an integer the value must be greater than or equal to zero. If you specify `None` (which is the default) the data store will be read-only.
 
 ### Write data
 
@@ -139,7 +139,7 @@ del ds["someKey"]
 
 This operation is indempotent. No exception will be raised if the key has already been deleted.
 
-Please note that in ordert to maintain synchronization capabilities with other data stores information about this delete will be kept internally in the data store.
+Please note that in order to maintain synchronization capabilities with other data stores information about this delete will be kept internally in the data store.
 
 ### Delete all key value pairs
 
@@ -190,7 +190,7 @@ After this you can use `get()`, `put()`, `remove()` and other methods.
 
 If intermediate changes occurred in other instances of a data store these changes are not synchronized automatically to other data store. Synchronization is entirely up to you: As synchronization is not cheap you as the developer has to decide when a synchronization should be performed.
 
-During synchronization the directory of files storing the key-value pairs is scanned for new entries. If new entries are found they will get loaded. The information contained in these files will then be incorporated into the current data store instance. As this is directly dependend on the number of files written since the last time synchronization has been performed, this might be a bit costly. Therefore it is up to you as a developer to decide when exactly these synchronizations should occur.
+During synchronization the directory of files storing the key-value pairs is scanned for new entries. If new entries are found they will get loaded. The information contained in these files will then be incorporated into the current data store instance. As this is directly dependent on the number of files written since the last time synchronization has been performed, this might be a bit costly. Therefore it is up to you as a developer to decide when exactly these synchronizations should occur.
 
 Performance
 -----------
@@ -208,9 +208,9 @@ As during instantiation `synchronize()` is called to read all existing data, ins
 (Possible) Future Development
 -----------------------------
 
-The current implementation is based on synchroneous I/O operations. Future implementation options therefore would be:
+The current implementation is based on synchronous I/O operations. Future implementation options therefore would be:
 
-* provide an implementation based on asynchroneous I/O
+* provide an implementation based on asynchronous I/O
 * provide an implementation for C, Java, C#, maybe even JavaScript
 * maybe provide an implementation accessing data via SFTP
 * explore even better ways of implementing such a data store:
@@ -237,6 +237,3 @@ License
 This software is provided under the following license:
 
 * Apache Software License 2.0
-
-
-
